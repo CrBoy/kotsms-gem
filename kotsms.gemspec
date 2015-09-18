@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
 	s.authors     = ["CrBoy"]
 	s.email       = "crboy@crboy.net"
 	s.files       = ["lib/kotsms.rb"]
-	s.homepage    = "https://rubygems.org/gems/kotsms/"
+	s.homepage    = "https://github.com/CrBoy/kotsms-gem"
 	s.license       = "MIT"
 	s.add_runtime_dependency "iconv", "~> 1.0"
 end
