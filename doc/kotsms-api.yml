@@ -1,0 +1,106 @@
+---
+  swagger: "2.0"
+  info: 
+    title: "簡訊王 API"
+    description: "簡訊王 API 協定說明 (CrBoy 整理)"
+    version: "2011/08/03"
+    contact: 
+      url: "https://www.kotsms.com.tw/index.php?selectpage=pagenews&kind=4&viewnum=238"
+  schemes: 
+    - "http"
+  host: "mail2sms.com.tw"
+  basePath: "/"
+  produces:
+    - "text/html; charset=UTF-8"
+  paths: 
+    http://202.39.48.216/kotsmsapi-1.php:
+      get:
+        summary: "即時發送簡訊"
+        parameters:
+          - $ref: "#/parameters/username"
+          - $ref: "#/parameters/password"
+          - $ref: "#/parameters/dstaddr"
+          - $ref: "#/parameters/smbody"
+          - $ref: "#/parameters/dlvtime"
+          - $ref: "#/parameters/vldtime"
+          - $ref: "#/parameters/response"
+        responses: 
+          200: 
+            description: "發送成功"
+    http://202.39.48.216/kotsmsapi-2.php:
+      get:
+        summary: "大量發送簡訊"
+        parameters:
+          - $ref: "#/parameters/username"
+          - $ref: "#/parameters/password"
+          - $ref: "#/parameters/dstaddr"
+          - $ref: "#/parameters/smbody"
+          - $ref: "#/parameters/dlvtime"
+          - $ref: "#/parameters/vldtime"
+          - $ref: "#/parameters/response"
+        responses: 
+          200: 
+            description: "發送成功"
+    /memberpoint.php:
+      get:
+        summary: "查詢剩餘點數"
+        parameters:
+          - $ref: "#/parameters/username"
+          - $ref: "#/parameters/password"
+    /msgstatus.php:
+      get:
+        summary: "查詢簡訊發送狀態"
+        parameters:
+          - $ref: "#/parameters/username"
+          - $ref: "#/parameters/password"
+          - $ref: "#/parameters/kmsgid"
+  parameters: 
+    username: 
+      in: "query"
+      type: "string"
+      name: "username"
+      description: "帳號"
+      required: true
+    password: 
+      in: "query"
+      type: "string"
+      name: "password"
+      description: "密碼"
+      required: true
+    dstaddr:
+      in: "query"
+      type: "string"
+      name: "dstaddr"
+      description: "目的門號"
+      required: true
+    smbody:
+      in: "query"
+      type: "string"
+      name: "smbody"
+      description: "簡訊內容 (big5)"
+      required: true
+    dlvtime:
+      in: "query"
+      type: "string"
+      name: "dlvtime"
+      description: "簡訊預約發送時間 (YYYY/MM/DD hh:mm:ss) 建議設定為 0 即時發送"
+      required: false
+    vldtime:
+      in: "query"
+      type: "string"
+      name: "vldtime"
+      description: "發送簡訊的有效期限 (可用 YYYY/MM/DD hh:mm:ss 或秒數設定)"
+      required: false
+    response:
+      in: "query"
+      type: "string"
+      name: "response"
+      description: "狀態回報網址"
+      required: false
+    kmsgid:
+      in: "query"
+      type: "string"
+      name: "kmsgid"
+      description: "傳送簡訊時收到的記錄編號"
+      required: true
+

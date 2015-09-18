@@ -12,8 +12,11 @@ It has four functions: send message, send bulk of messages, get the balance, and
 Developer's note (and murmur)
 -----------------------------
 
-- Does anyone know what does the "kot" mean?
 - The document guide to use GET method. However POST method is allowed as well. This would be changed in the future version.
+- `doc/kotsms-api.yml` is the api document in Swagger [1] 2.0 format.
+- Does anyone know what does the "kot" mean?
+
+[1]: Swagger: http://swagger.io
 
 
 Contributor
