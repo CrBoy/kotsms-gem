@@ -22,17 +22,17 @@ class Kotsms
 
 	def deliver(dst, content, options={})
 		endpoint = case (options[:mode].to_sym rescue nil)
-				   when nil, :bit
-					   SMS_ENDPOINT
-				   when :bulk
-					   BULK_SMS_ENDPOINT
-					 when :encrypted_bit
-						 ENCRYPTED_SMS_ENDPOINT
-					 when :encrypted_bulk
-						 ENCRYPTED_BULK_SMS_ENDPOINT
-				   else
-					   raise StandardError.new "Bad delivering mode!"
-				   end
+                           when nil, :bit
+                            SMS_ENDPOINT
+                           when :bulk
+                            BULK_SMS_ENDPOINT
+                           when :encrypted_bit
+                            ENCRYPTED_SMS_ENDPOINT
+                           when :encrypted_bulk
+                            ENCRYPTED_BULK_SMS_ENDPOINT
+                           else
+                            raise StandardError.new "Bad delivering mode!"
+                           end
 		uri = URI.parse(endpoint)
 
 
