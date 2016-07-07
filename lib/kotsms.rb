@@ -3,10 +3,8 @@ require "uri"
 require "iconv"
 
 class Kotsms
-	SMS_ENDPOINT = "http://202.39.48.216/kotsmsapi-1.php"
-	BULK_SMS_ENDPOINT = "http://202.39.48.216/kotsmsapi-2.php"
-	ENCRYPTED_SMS_ENDPOINT = "https://api.kotsms.com.tw/kotsmsapi-1.php"
-	ENCRYPTED_BULK_SMS_ENDPOINT = "https://api.kotsms.com.tw/kotsmsapi-2.php"
+	SMS_ENDPOINT = "https://api.kotsms.com.tw/kotsmsapi-1.php"
+	BULK_SMS_ENDPOINT = "https://api.kotsms.com.tw/kotsmsapi-2.php"
 	BALANCE_ENDPOOINT = "http://mail2sms.com.tw/memberpoint.php"
 	STATUS_ENDPOOINT = "http://mail2sms.com.tw/msgstatus.php"
 
@@ -22,19 +20,14 @@ class Kotsms
 
 	def deliver(dst, content, options={})
 		endpoint = case (options[:mode].to_sym rescue nil)
-                           when nil, :bit
-                            SMS_ENDPOINT
-                           when :bulk
-                            BULK_SMS_ENDPOINT
-                           when :encrypted_bit
-                            ENCRYPTED_SMS_ENDPOINT
-                           when :encrypted_bulk
-                            ENCRYPTED_BULK_SMS_ENDPOINT
-                           else
-                            raise StandardError.new "Bad delivering mode!"
-                           end
+				   when nil, :bit
+					   SMS_ENDPOINT
+				   when :bulk
+					   BULK_SMS_ENDPOINT
+				   else
+					   raise StandardError.new "Bad delivering mode!"
+				   end
 		uri = URI.parse(endpoint)
-
 
 		uri.query = URI.encode_www_form({
 			username: @username,
