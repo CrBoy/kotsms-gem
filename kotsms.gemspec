@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 	s.name        = "kotsms"
-	s.version     = "0.1.1"
-	s.date        = "2015-09-18"
+	s.version     = "0.1.2"
+	s.date        = "2016-07-07"
 	s.summary     = "API wrapper for SMS King (www.kotsms.com.tw)"
 	s.description = "This gem wraps the web API of SMS King (www.kotsms.com.tw) for Rubyists."
 	s.authors     = ["CrBoy"]
